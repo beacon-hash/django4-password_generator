@@ -1,0 +1,27 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<div class="container text-center">
+    <h1>
+        Password Generator
+    </h1>
+    <form action="{% url 'password' %}">
+        <select name="length">
+            {% for x in range %}
+                {% if x == 12 %}
+                    <option value={{ x }} selected="selected">{{ x }}</option>
+                {% else %}
+                    <option value={{ x }}>{{ x }}</option>     
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br>
+        Uppercase <input type="checkbox" name="uppercase">
+        <br>
+        Numbers <input type="checkbox" name="numbers">
+        <br>
+        Special Characters <input type="checkbox" name="special_chars">
+        <br>
+        <input type="submit", value="Generate Password" class="btn btn-success btn-primary">
+        <br>
+    </form>
+</div>
